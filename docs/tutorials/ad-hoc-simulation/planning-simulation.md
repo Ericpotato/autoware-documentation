@@ -224,7 +224,7 @@ When driving across a crosswalk, ego vehicle will respond to objects on the cros
 
 #### Unsignalized crosswalk
 
-To pass through an unsignalized crosswalk, the ego vehicle will first slow down and stop for a safety check. Once safety is confirmed, the vehicle will proceed.
+To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles, the ego vehicle will cross it without slowing down. However, if obstacles are present, the ego vehicle will slow down and stop for a safety check. Once it's safe to proceed, the ego vehicle will continue its journey.
 
 1. Set an initial pose and a goal pose of the ego vehicle driving across an unsignalized crosswalk. A path will be planned.
 
@@ -244,7 +244,7 @@ To pass through an unsignalized crosswalk, the ego vehicle will first slow down 
 
 #### Signalized crosswalk
 
-1. Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light is `GREEN` by default, the ego vehicle behaves as it does at an unsignalized crosswalk, decelerating and stopping.
+1. Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light for vehicles are `GREEN` by default, the ego vehicle behaves as it does at an unsignalized crosswalk, decelerating and stopping.
 
    ![signalized-placing-ego-vehicle](images/planning/passing-crosswalk/signalized-placing-ego-vehicle.png)
 
