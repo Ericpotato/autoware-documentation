@@ -238,7 +238,7 @@ To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles
 
    ![unsignalized-crosswalk-stop](images/planning/passing-crosswalk/unsignalized-crosswalk-stop.png)
 
-4. Wait for about three seconds. The ego vehicle will start moving again and cross the crosswalk.
+4. Wait for about a few seconds. The ego vehicle will start moving again and cross the crosswalk.
 
    ![unsignalized-crosswalk-move-again](images/planning/passing-crosswalk/unsignalized-crosswalk-move-again.png)
 
