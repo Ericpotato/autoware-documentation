@@ -221,12 +221,13 @@ To remove a traffic light from `TrafficLightPublishPanel`, click the `RESET` but
 ### Driving across a crosswalk
 
 When driving across a crosswalk, ego vehicle will respond to objects on the crosswalk and the traffic light.
+You can check [crosswalk](https://autowarefoundation.github.io/autoware.universe/main/planning/behavior_velocity_crosswalk_module/) for more details
 
-#### Unsignalized crosswalk
+#### Non-signalized crosswalk
 
-To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles, the ego vehicle will cross it without slowing down. However, if obstacles are present, the ego vehicle will slow down and stop for a safety check. Once it's safe to proceed, the ego vehicle will continue its journey.
+To pass through a non-signalized crosswalk, if the crosswalk is free of target objects, the ego vehicle will cross it without slowing down. However, if target objects are detected close to the planned path, the ego vehicle will slow down and stop for a yield decision. Once it's confirmed safe to proceed, the ego vehicle will start moving.
 
-1. Set an initial pose and a goal pose of the ego vehicle driving across an unsignalized crosswalk. A path will be planned.
+1. Set an initial pose and a goal pose for the ego vehicle driving across an non-signalized crosswalk. A path will be planned.
 
    ![unsignalized-placing-ego-vehicle](images/planning/passing-crosswalk/unsignalized-placing-ego-vehicle.png)
 
@@ -234,7 +235,7 @@ To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles
 
    ![unsignalized-crosswalk-start](images/planning/passing-crosswalk/unsignalized-crosswalk-start.png)
 
-3. Engage the ego vehicle. The ego vehicle will decelerate and stop before the crosswalk. The marked **crosswalk** in the figure indicates that the stopping behavior is casued by the objects on the **crosswalk**.
+3. Engage the ego vehicle. The ego vehicle will decelerate and stop before the crosswalk. The marked **crosswalk** in the figure indicates that the stopping behavior is caused by the objects on the **crosswalk**.
 
    ![unsignalized-crosswalk-stop](images/planning/passing-crosswalk/unsignalized-crosswalk-stop.png)
 
@@ -244,19 +245,19 @@ To pass through an unsignalized crosswalk, if the crosswalk is free of obstacles
 
 #### Signalized crosswalk
 
-1. Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light for vehicles are `GREEN` by default, the ego vehicle behaves as it does at an unsignalized crosswalk, decelerating and stopping.
+1. Set the ego vehicle and a dummy pedestrian at an intersection, similar to the previous scenario. Given that the traffic light for vehicles is `GREEN` by default and the dummy pedestrian is close to the planned path, the ego vehicle behaves as it would at a non-signalized crosswalk, decelerating and stopping.
 
    ![signalized-placing-ego-vehicle](images/planning/passing-crosswalk/signalized-placing-ego-vehicle.png)
 
-2. Delete the dummy pedestrian and set the traffic light to `RED`. The ego vehicle will decelerate and stop before the crosswalk. The marked **traffic_light** in the figure indicates that the stop is casued by the **traffic_light**. The ego vehicle will not move until the traffic light turns green.
+2. Delete the dummy pedestrian and set the traffic light to `RED`. The ego vehicle will decelerate and stop before the crosswalk. The marked **traffic_light** in the figure indicates that the stop is caused by the **traffic_light**. The ego vehicle will not move until the traffic light turns green.
 
    ![signalized-traffic-light-stop](images/planning/passing-crosswalk/signalized-traffic-light-stop.png)
 
-3. Set a dummy pedestrian on the crosswalk agian. It can be seen that both the **traffic_light** and **crosswalk** (the two markings may overlap) affact the stopping behavior.
+3. Set a dummy pedestrian on the crosswalk again. It can be seen that both the **traffic_light** and **crosswalk** (the two markings may overlap) affect the stopping behavior.
 
    ![signalized-traffic-light-crosswalk-stop.png](images/planning/passing-crosswalk/signalized-traffic-light-crosswalk-stop.png)
 
-4. Set the traffic light to `GREEN` and engage the vehicle, the ego vehicle will stop for safety check and start move again.
+4. Set the traffic light to `GREEN` and engage the vehicle, the ego vehicle will stop for a yield decision and then start moving.
 
    ![signalized-passing](images/planning/passing-crosswalk/signalized-passing.png)
 
